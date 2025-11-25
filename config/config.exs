@@ -13,3 +13,7 @@ config :logger,
        format: "$time [$level] $metadata$message\n",
        level: :warning,
        metadata: [:pid, :mfa]
+
+config :journey, :graphs, [
+  &UselessMachine.graph/0
+]

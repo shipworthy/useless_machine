@@ -1,18 +1,15 @@
 defmodule UselessMachine do
-  @moduledoc """
-  Documentation for `UselessMachine`.
-  """
+  import Journey.Node
 
-  @doc """
-  Hello world.
+  def graph() do
+    Journey.new_graph([
+      input(:switch),
+      mutate(:paw, [:switch], &lol_no/1, mutates: :switch)
+    ])
+  end
 
-  ## Examples
-
-      iex> UselessMachine.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  def lol_no(%{switch: switch} = _values) do
+    IO.puts("paw says: '#{switch}? lol no'")
+    {:ok, "off"}
   end
 end
