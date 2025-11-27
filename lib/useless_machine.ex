@@ -8,7 +8,7 @@ defmodule UselessMachine do
     ])
   end
 
-  def lol_no(%{switch: switch} = _values) do
+  defp lol_no(%{switch: switch} = _values) do
     IO.puts("paw says: '#{switch}? lol no'")
     {:ok, "off"}
   end
